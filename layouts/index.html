@@ -28,7 +28,7 @@
     <div class="card">
       {{ $url := split (replace .url "https://" "") "." }}
       {{ $username := index $url 0 }}
-      <p class="username">by {{ if eq (index $url 1) "github" }}@<a href="{{ .github }}" target="_blank" rel="noreferrer">{{ $username}}</a>{{ else}}Anonymous{{end}}</p>
+      <p class="username">by {{ if eq (index $url 1) "github" }}@<a href="{{ .url }}" target="_blank" rel="noreferrer">{{ $username}}</a>{{ else}}Anonymous{{end}}</p>
       <a href="{{ .url }}" target="_blank" rel="noreferrer">View Project</a>
     </div>
     {{ end }}
