@@ -11,8 +11,8 @@
   </div>
 
   <div class="buttons">
-    <a class="github-btn" target="_blank" href="https://github.com/danascript/algtivism">View Github Repo</a>
-    <a class="youtube-btn" target="_blank" href="https://github.com/danascript/algtivism">Watch on Youtube</a>
+    <a class="github-btn" target="_blank" href="https://github.com/danascript/algtivism" rel="noreferrer">View Github Repo</a>
+    <a class="youtube-btn" target="_blank" href="https://github.com/danascript/algtivism" rel="noreferrer">Watch on Youtube</a>
   </div>
 </section>
 
@@ -22,8 +22,8 @@
     {{ range .Site.Data.highlighted }}
     <div class="card">
       {{ $username := index (split (replace .url "https://" "") ".") 0 }}
-      <p class="username">by @<a href="{{ .github }}" target="_blank">{{ $username }}</a></p>
-      <a href="{{ .url }}" target="_blank">View Project</a>
+      <p class="username">by @<a href="{{ .github }}" target="_blank" rel="noreferrer">{{ $username }}</a></p>
+      <a href="{{ .url }}" target="_blank" rel="noreferrer">View Project</a>
     </div>
     {{ end }}
   </div>
