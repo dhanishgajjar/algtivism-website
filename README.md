@@ -1,1 +1,0 @@
-# algtivism-website
