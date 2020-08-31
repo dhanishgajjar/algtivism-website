@@ -11,18 +11,24 @@
   </div>
 
   <div class="buttons">
-    <a class="github-btn" target="_blank" href="https://github.com/danascript/algtivism" rel="noreferrer">View Github Repo</a>
-    <a class="youtube-btn" target="_blank" href="https://github.com/danascript/algtivism" rel="noreferrer">Watch on Youtube</a>
+    <a class="github-btn" target="_blank" href="https://github.com/danascript/algtivism" rel="noreferrer"
+      >View Github Repo</a
+    >
+    <a class="youtube-btn" target="_blank" href="https://www.youtube.com/watch?v=24zFySpnBP4" rel="noreferrer"
+      >Watch on Youtube</a
+    >
   </div>
 </section>
 
 <section class="highlighted">
-  <h2>Recent Example Projects</h2>
+  <h2>There are already {{ len .Site.Data.highlighted }} websites that are fighting this cause.</h2>
+  <h3>Some of the recent projects</h3>
   <div class="cards">
-    {{ range .Site.Data.highlighted }}
+    {{ range last 8 .Site.Data.highlighted }}
     <div class="card">
-      {{ $username := index (split (replace .url "https://" "") ".") 0 }}
-      <p class="username">by @<a href="{{ .github }}" target="_blank" rel="noreferrer">{{ $username }}</a></p>
+      {{ $url := split (replace .url "https://" "") "." }}
+      {{ $username := index $url 0 }}
+      <p class="username">by {{ if eq (index $url 1) "github" }}@<a href="{{ .github }}" target="_blank" rel="noreferrer">{{ $username}}</a>{{ else}}Anonymous{{end}}</p>
       <a href="{{ .url }}" target="_blank" rel="noreferrer">View Project</a>
     </div>
     {{ end }}
